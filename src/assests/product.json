@@ -1,0 +1,17 @@
+[
+    {
+        "title": "Produit 1",
+        "price": 10.99,
+        "image": "assets/new.jpeg",
+        "description": "Description du produit 1.",
+        "category": "Catégorie 1"
+    },
+    {
+        "title": "Produit 2",
+        "price": 19.99,
+        "image": "assets/new.jpeg",
+        "description": "Description du produit 2.",
+        "category": "Catégorie 2"
+    }
+    
+]

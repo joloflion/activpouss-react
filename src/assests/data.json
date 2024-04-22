@@ -1,0 +1,434 @@
+{
+    "categories": [
+        {
+            "id": 1,
+            "name": "Gamme Ativpouss",
+            "image": "./assets/lotion.jpg",
+            "path": "#activpouss",           
+            "products": [
+                {
+                  "id": 1,
+                  "name": "Gamme Booster",
+                  "image": "assets/gamme booster.png",
+                  "price": 16000,
+                  "like": 10,
+                  "desc": ""
+                },
+                {
+                  "id": 2,
+                  "name": "Gamme Booster +",
+                  "image": "../../../../../assets/gamme booster plus.png",
+                  "price": 20000,
+                  "like": 5,
+                  "desc": ""
+                },
+                {
+                  "id": 3,
+                  "name": "Gamme extra pouss Petit modele",
+                  "image": "../../../../../assets/pack extra pouss petit.png",
+                  "price": 8500,
+                  "like": 12,
+                  "desc": ""
+                },
+                {
+                  "id": 4,
+                  "name": "Gamme Chebé",
+                  "image": "../../../../../assets/pack chebé.png",
+                  "price": 12000,
+                  "like": 8,
+                  "desc": ""
+                },
+                {
+                  "id": 5,
+                  "name": "Gamme Puissance",
+                  "image": "../../../../../assets/gamme puissance.png",
+                  "price": 25000,
+                  "like": 8,
+                  "desc": ""
+                },
+                {
+                  "id": 6,
+                  "name": "Bain D'huile",
+                  "image": "../../../../../assets/products/bain huile.png",
+                  "price": 4500,
+                  "like": 8,
+                  "desc": ""
+                },
+                {
+                  "id": 7,
+                  "name": "Créme chantilly ayurvédique amla ricin 150ml",
+                  "image": "../../../../../assets/products/creme chantilly.png",
+                  "price": 4500,
+                  "like": 7,
+                  "desc": ""
+            
+                },
+                {
+                  "id": 8,
+                  "name": "Créme Merveille ulti vitaminée",
+                  "image": "../../../../../assets/products/creme merveille.png",
+                  "price": 7500,
+                  "like": 9,
+                  "desc": ""
+            
+                },
+                {
+                  "id": 9,
+                  "name": "Masque Hydratant Et Nourissant 300ml",
+                  "image": "../../../../../assets/products/masque hydratant nourissant.png",
+                  "price": 6000,
+                  "like": 9,
+                  "desc": ""
+            
+                },
+                {
+                  "id": 10,
+                  "name": "Lotion hydratante et fortifiante hibiscus aloe vera 250ml",
+                  "image": "../../../../../assets/products/lotion hydratante fortifiant.png",
+                  "price": 4500,
+                  "like": 9,
+                  "desc": ""
+            
+                },
+                {
+                  "id": 11,
+                  "name": "lait hydratant douceur Aloe vera baobab",
+                  "image": "../../../../../assets/products/lait hydratant douceur.png",
+                  "price": 5500,
+                  "like": 9,
+                  "desc": ""
+            
+                },
+                {
+                  "id": 12,
+                  "name": "Serum pouss pouss",
+                  "image": "../../../../../assets/products/serum pouss.png",
+                  "price": 7500,
+                  "like": 9,
+                  "desc": ""
+            
+                }
+
+                
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Gamme Mini (princesses)",
+            "image": "../../../../../assets/serum.jpg",
+            "path": "#mini",           
+            "products": [
+              {
+                "id": 13,
+                "name": "Gamme Mini petit model",
+                "image": "../../../../../assets/gamme activ pouss mini petit format.png",
+                "price": 10000,
+                "like": 8,
+                "desc": ""
+              },
+              {
+                "id": 14,
+                "name": "Gamme Mini grand model",
+                "image": "../../../../../assets/gamme activpouss mini grand format.png",
+                "price": 15000,
+                "like": 8,
+                "desc": ""
+              },
+              {
+                "id": 15,
+                "name": "Serum pouss pouss",
+                "image": "../../../../../assets/products/serum pouss.png",
+                "price": 5000,
+                "like": 4,
+                "desc": ""
+              },
+              {
+                "id": 16,
+                "name": "Shampoing hyper doux au savon noir miel",
+                "image": "../../../../../assets/products/shampoing savon noire.png",
+                "price": 4500,
+                "like": 6,
+                "desc": ""
+              }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Accessoires cheveux",
+            "image": "../../../../../assets/shampoing.jpg",
+            "path": "#accessoire",           
+            "products": [
+              {
+                "id": 17,
+                "name": "Applicateur d'huile",
+                "image": "../../../../../assets/products/accessoire 1.png",
+                "price": 3000,
+                "like": 8,
+                "desc": ""
+              },
+              {
+                "id": 18,
+                "name": "Brosse massage du cuir chevelu",
+                "image": "../../../../../assets/products/accessoire 2.png",
+                "price": 3000,
+                "like": 8,
+                "desc": ""
+              },
+              {
+                "id": 19,
+                "name": "Brosse demelante",
+                "image": "../../../../../assets/products/accessoire 3.png",
+                "price": 3000,
+                "like": 8,
+                "desc": ""
+              },
+              {
+                "id": 20,
+                "name": "Bonnet en soie",
+                "image": "../../../../../assets/products/accessoire 4.png",
+                "price": 3000,
+                "like": 8,
+                "desc": ""
+              },
+              {
+                "id": 21,
+                "name": "Spray vaporisateur continu",
+                "image": "../../../../../assets/products/accessoire 6.jpeg",
+                "price": 3500,
+                "like": 8,
+                "desc": ""
+              },
+              {
+                "id": 22,
+                "name": "Cap shampoing",
+                "image": "../../../../../assets/products/accessoire 7.jpeg",
+                "price": 3000,
+                "like": 8,
+                "desc": ""
+              },
+              {
+                "id": 22,
+                "name": "Bonnet serviette",
+                "image": "../../../../../assets/products/accessoire 8.jpeg",
+                "price": 3000,
+                "like": 8,
+                "desc": ""
+              },
+              {
+                "id": 24,
+                "name": "Bonnet serviette",
+                "image": "../../../../../assets/products/accessoire 5.png",
+                "price": 3000,
+                "like": 8,
+                "desc": ""
+              },
+              {
+                "id": 25,
+                "name": "Bonnet chauffant électrique",
+                "image": "../../../../../assets/products/accessoire 9.jpeg",
+                "price": 10000,
+                "like": 8,
+                "desc": ""
+              },
+              {
+                "id": 26,
+                "name": "Brosse electrique chauffante",
+                "image": "../../../../../assets/products/accessoire 10.jpeg",
+                "price": 15000,
+                "like": 8,
+                "desc": ""
+              }
+              
+            ]
+        }
+
+    ],
+    "products": [
+      {
+        "id": 1,
+        "name": "Gamme Booster",
+        "image": "../../../../../assets/gamme booster.png",
+        "price": 16000,
+        "like": 10,
+        "desc": "La Gamme Booster est spécialement conçue pour revitaliser vos cheveux et leur donner une nouvelle vie. Les ingrédients naturels nourrissent en profondeur, renforcent les racines et améliorent la croissance capillaire. Obtenez des cheveux plus forts et plus sains avec cette gamme puissante."
+      },
+      {
+        "id": 2,
+        "name": "Gamme Booster +",
+        "image": "../../../../../assets/gamme booster plus.png",
+        "price": 20000,
+        "like": 5,
+        "desc": "La Gamme Booster + est une version améliorée de notre Gamme Booster populaire. Elle offre une hydratation intense, répare les cheveux abîmés et stimule la brillance naturelle. Offrez à vos cheveux une cure de jouvence avec cette gamme de soins capillaires avancée."
+      },
+      {
+        "id": 3,
+        "name": "Gamme extra pouss Petit modèle",
+        "image": "../../../../../assets/pack extra pouss petit.png",
+        "price": 8500,
+        "like": 12,
+        "desc": "La Gamme extra pouss Petit modèle est spécialement formulée pour les cheveux de petite taille. Elle nourrit en profondeur, améliore la croissance et ajoute de la brillance. Obtenez des cheveux sains et éclatants avec ce pack de soins capillaires."
+      },
+      {
+        "id": 4,
+        "name": "Gamme Chebé",
+        "image": "../../../../../assets/pack chebé.png",
+        "price": 12000,
+        "like": 8,
+        "desc": "La Gamme Chebé est un secret capillaire bien gardé. Elle renforce les cheveux, prévient la casse et favorise une croissance saine. Découvrez les bienfaits du Chebé pour des cheveux plus longs et plus forts."
+      },
+      {
+        "id": 5,
+        "name": "Gamme Puissance",
+        "image": "../../../../../assets/gamme puissance.png",
+        "price": 25000,
+        "like": 8,
+        "desc": "La Gamme Puissance est une solution ultime pour des cheveux d'apparence plus épaisse et plus forts. Elle hydrate en profondeur, stimule la croissance et redonne vie à vos cheveux. Obtenez une chevelure puissante avec cette gamme révolutionnaire."
+      },
+      {
+        "id": 6,
+        "name": "Bain D'huile",
+        "image": "../../../../../assets/products/bain huile.png",
+        "price": 4500,
+        "like": 8,
+        "desc": "Le Bain D'huile est un traitement intensif pour nourrir vos cheveux en profondeur. Sa formule riche en huiles naturelles restaure la vitalité de vos cheveux, les rend plus doux et plus brillants. Offrez à vos cheveux un bain de bien-être."
+      },
+      {
+        "id": 7,
+        "name": "Crème chantilly ayurvédique amla ricin 150ml",
+        "image": "../../../../../assets/products/creme chantilly.png",
+        "price": 4500,
+        "like": 7,
+        "desc": "La Crème chantilly ayurvédique est un mélange unique d'ingrédients ayurvédiques qui revitalisent vos cheveux en profondeur. Elle nourrit, hydrate et renforce, laissant vos cheveux doux, brillants et en pleine santé."
+      },
+      {
+        "id": 8,
+        "name": "Crème Merveille ulti vitaminée",
+        "image": "../../../../../assets/products/creme merveille.png",
+        "price": 7500,
+        "like": 9,
+        "desc": "La Crème Merveille ulti vitaminée est un véritable miracle pour vos cheveux. Sa formule riche en vitamines nourrit, répare et protège vos cheveux. Obtenez des cheveux incroyablement sains et éclatants avec cette crème merveilleuse."
+      },
+      {
+        "id": 9,
+        "name": "Masque Hydratant Et Nourissant 300ml",
+        "image": "../../../../../assets/products/masque hydratant nourissant.png",
+        "price": 6000,
+        "like": 9,
+        "desc": "Le Masque Hydratant Et Nourissant est un traitement intensif qui restaure l'hydratation de vos cheveux et les nourrit en profondeur. Il laisse vos cheveux doux, lisses et pleins de vitalité. Offrez-leur un bain de nutrition."
+      },
+      {
+        "id": 10,
+        "name": "Lotion hydratante et fortifiante hibiscus aloe vera 250ml",
+        "image": "../../../../../assets/products/lotion hydratante fortifiant.png",
+        "price": 4500,
+        "like": 9,
+        "desc": "La Lotion hydratante et fortifiante est un véritable élixir pour vos cheveux. Elle hydrate en profondeur, renforce les racines et améliore la croissance capillaire. Obtenez des cheveux hydratés, forts et éclatants avec cette lotion magique."
+      },
+      {
+        "id": 11,
+        "name": "Lait hydratant douceur Aloe vera baobab",
+        "image": "../../../../../assets/products/lait hydratant douceur.png",
+        "price": 5500,
+        "like": 9,
+        "desc": "Le Lait hydratant douceur est un soin hydratant apaisant pour vos cheveux. Sa formule à base d'Aloe vera et de Baobab calme les frisottis, hydrate en profondeur et laisse vos cheveux doux et soyeux. Offrez-leur une douceur naturelle."
+      },
+      {
+        "id": 12,
+        "name": "Sérum pouss pouss",
+        "image": "../../../../../assets/products/serum pouss.png",
+        "price": 7500,
+        "like": 9,
+        "desc": "Le Sérum Pouss Pouss est votre allié pour des cheveux plus longs et plus forts. Enrichi en ingrédients nourrissants, il stimule la pousse des cheveux, répare les pointes fourchues et favorise la brillance. Obtenez des cheveux de rêve avec ce sérum révolutionnaire."
+      },
+      {
+        "id": 16,
+        "name": "Shampoing hyper doux au savon noir miel",
+        "image": "../../../../../assets/products/shampoing savon noire.png",
+        "price": 4500,
+        "like": 6,
+        "desc": "Le Shampoing Hyper Doux au savon noir et miel nettoie en douceur vos cheveux tout en les nourrissant. Sa formule naturelle revitalise les cheveux, les laisse propres, doux et parfumés. Offrez à vos cheveux une expérience de soin luxueuse."
+      },
+      {
+        "id": 17,
+        "name": "Applicateur d'huile",
+        "image": "../../../../../assets/products/accessoire 1.png",
+        "price": 3000,
+        "like": 8,
+        "desc": "L'applicateur d'huile est l'outil idéal pour une application précise de l'huile capillaire. Son embout en pointe permet de cibler les racines et les pointes, assurant une distribution uniforme. Prenez soin de vos cheveux avec cet accessoire pratique."
+      },
+      {
+        "id": 18,
+        "name": "Brosse massage du cuir chevelu",
+        "image": "../../../../../assets/products/accessoire 2.png",
+        "price": 3000,
+        "like": 8,
+        "desc": "La brosse de massage du cuir chevelu est conçue pour stimuler la circulation sanguine et détendre votre cuir chevelu. Elle favorise la croissance des cheveux, réduit les démangeaisons et offre une sensation de bien-être. Prenez soin de vous avec cette brosse apaisante."
+      },
+      {
+        "id": 19,
+        "name": "Brosse démêlante",
+        "image": "../../../../../assets/products/accessoire 3.png",
+        "price": 3000,
+        "like": 8,
+        "desc": "La brosse démêlante est votre alliée contre les nœuds et les cheveux emmêlés. Ses dents douces glissent en douceur à travers les cheveux, démêlant les mèches sans effort. Obtenez des cheveux soyeux et sans nœuds avec cette brosse pratique."
+      },
+      {
+        "id": 20,
+        "name": "Bonnet en soie",
+        "image": "../../../../../assets/products/accessoire 4.png",
+        "price": 3000,
+        "like": 8,
+        "desc": "Le bonnet en soie est le secret pour des cheveux lisses et en bonne santé. Sa matière douce et lisse réduit les frictions, prévient les cassures et préserve l'hydratation. Offrez à vos cheveux une protection naturelle avec ce bonnet élégant."
+      },
+      {
+        "id": 21,
+        "name": "Spray vaporisateur continu",
+        "image": "../../../../../assets/products/accessoire 6.jpeg",
+        "price": 3500,
+        "like": 8,
+        "desc": "Le spray vaporisateur continu est l'outil parfait pour l'humidification de vos cheveux. Sa pulvérisation fine et continue permet une distribution uniforme des produits capillaires. Gardez vos cheveux hydratés et bien soignés avec ce spray pratique."
+      },
+      {
+        "id": 22,
+        "name": "Cap shampoing",
+        "image": "../../../../../assets/products/accessoire 7.jpeg",
+        "price": 3000,
+        "like": 8,
+        "desc": "Le cap shampoing est un accessoire essentiel pour protéger vos yeux et votre visage lors du shampoing. Il est conçu pour un ajustement confortable et offre une protection optimale. Assurez-vous de garder un confort maximal pendant votre rituel de soin capillaire."
+      },
+      {
+        "id": 23,
+        "name": "Bonnet serviette",
+        "image": "../../../../../assets/products/accessoire 5.png",
+        "price": 3000,
+        "like": 8,
+        "desc": "Le bonnet serviette est l'accessoire parfait pour sécher vos cheveux en douceur. Sa matière absorbante permet un séchage rapide et efficace tout en protégeant vos cheveux. Obtenez des cheveux secs et en pleine forme avec ce bonnet pratique."
+      },
+      {
+        "id": 24,
+        "name": "Bonnet chauffant électrique",
+        "image": "../../../../../assets/products/accessoire 9.jpeg",
+        "price": 10000,
+        "like": 8,
+        "desc": "Le bonnet chauffant électrique est un outil de coiffage avancé pour des traitements capillaires en profondeur. Il chauffe rapidement, ouvrant les cuticules pour une meilleure absorption des produits. Obtenez des résultats de salon à la maison avec ce bonnet chauffant."
+      },
+      {
+        "id": 25,
+        "name": "Brosse électrique chauffante",
+        "image": "../../../../../assets/products/accessoire 10.jpeg",
+        "price": 15000,
+        "like": 8,
+        "desc": "La brosse électrique chauffante est l'accessoire ultime pour coiffer vos cheveux rapidement. Elle chauffe instantanément, lissant et coiffant vos cheveux en un clin d'œil. Obtenez des cheveux parfaitement coiffés avec cette brosse électrique de haute qualité."
+      },
+      {
+        "id": 26,
+        "name": "Brosse électrique chauffante",
+        "image": "../../../../../assets/products/accessoire 10.jpeg",
+        "price": 15000,
+        "like": 8,
+        "desc": "La Brosse Électrique Chauffante est l'accessoire de coiffage révolutionnaire qui simplifie votre routine quotidienne. Avec ses fonctionnalités avancées, elle chauffe rapidement pour lisser, coiffer et donner du volume à vos cheveux. Cette brosse polyvalente vous permet de créer des coiffures professionnelles en quelques minutes, sans effort. Elle est parfaite pour un look impeccable chaque jour."
+      }
+    ]
+
+  
+}

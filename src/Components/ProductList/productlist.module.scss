@@ -1,0 +1,137 @@
+@import "../../styles/global.scss";
+
+
+.categoryList{
+  list-style: none;
+  padding: 0px;
+  li{
+    padding: 20px 12px;
+    border-left: 1px solid #CCCCCC;
+    border-right: 1px solid #CCCCCC;
+    border-bottom: 1px solid #CCCCCC;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+  transition: all .5s;
+  &:hover{
+    background-color: $pink;
+    color: $white;
+  }
+  }
+}
+
+.selctedCategory {
+  transition: all .5s;
+  background-color: $pink;
+  color: $white;
+}
+
+.categoryTitle{
+  background-color: $green;
+  font-size: 22px;
+  font-weight: 800;
+  color: $white;
+  padding: 12px;
+  margin-bottom: -8px;
+  
+
+}
+
+.productListWrapper {
+  padding: 50px 0;
+
+  :global {
+    .loadBtn {
+      background-color: $nevyBlue;
+      border: none;
+      color: $white;
+      padding: 10px 25px;
+    }
+  }
+}
+
+.categorySelector {
+  max-width: 290px;
+  margin-left: auto;
+}
+
+.productList {
+  display: grid;
+  grid-template-columns: repeat(3, 33.33%);
+  gap: 40px;
+  padding-top: 30px;
+}
+
+.searchBar {
+  border-radius: 5px;
+  border-color: $black;
+  padding: 3px 10px;
+  margin-right: 5px;
+  transition: 0.5s ease-in-out;
+  outline: none;
+}
+
+.searchWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.videoPlayer{
+  position: relative;
+  width: 100%;
+  height: 340px;
+  background-color: $grey;
+}
+
+.videoItem{
+  width: 100%;
+  height: 150px;
+ // background-color: $grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  color: $pink;
+  //border: 1px solid $grey;
+  transition: .5s;
+  cursor: pointer;
+  &:hover{
+    opacity: .7;
+  }
+}
+
+@media (max-width: $media-md) {
+  .productList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .searchWrapper {
+    flex-direction: column;
+  }
+
+  .categorySelector {
+    max-width: 100%;
+    margin-left: 0;
+    margin-top: 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: $media-lg) {
+  .productList {
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .searchWrapper {
+    flex-direction: column;
+    align-items: start;
+  }
+}

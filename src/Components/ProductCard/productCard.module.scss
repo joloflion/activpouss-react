@@ -1,0 +1,47 @@
+@import "../../styles/global.scss";
+
+.cardImg {
+  cursor: pointer;
+  height: 150px;
+  max-width: 150px;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
+.productCard {
+  position: relative;
+  height: 320px;
+  transition: all 0.5s ease-out;
+  border: 1px solid #CCCCCC;
+  padding: 4px;
+ text-align: center;
+  &:hover {
+    transform: scale(1.05);
+    transition: all 0.5s ease-in;
+  }
+}
+
+.cardTitle{
+  font-size: 16px;
+  padding: 8px;
+}
+.cardPrice{
+  font-size: 18px;
+  padding: 8px 0;
+  font-weight: 600;
+}
+.commonBtn {
+  background-color: $pink !important;
+  border: none !important;
+  color: $white !important;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 8px 0;
+  transition: all .5s;
+
+  &:hover {
+    background-color: $green !important;
+  }
+}

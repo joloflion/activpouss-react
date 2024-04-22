@@ -1,0 +1,130 @@
+@import "../../styles//global.scss";
+
+.slideCover{
+  height: 65vh;
+  
+}
+
+.sliderItem {
+  height: 60vh;
+  position: relative;
+  background-color: $white;
+  img{
+    height: 60vh;
+  }
+  h3{
+    font-size: 22px;
+    font-weight: bolder;
+    color: $green;
+    text-transform: uppercase;
+
+  }
+
+  .bgGrey{
+    background-color: $grey ;
+    position: relative !important;
+    height: 60vh;
+  }
+
+  p{
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 30px;
+  }
+  
+}
+
+.slideImage{
+  height: 60vh;
+}
+
+.plusBtn{
+  position: absolute;
+ right: 0;
+ bottom: 0;
+  z-index: 12;
+ margin-bottom: 20px ;
+ margin-right: 40px;
+  border: none;
+  outline: none;
+  background-color: $green;
+  color: $white;
+  font-size: 16px;
+  border-radius: 4px;
+  padding: 8px 12px;
+}
+
+.sliderBtn {
+  background-color: $primaryColor !important;
+  border: none !important;
+  color: $black !important;
+  padding: 10px 25px !important;
+
+  :global {
+    a {
+      text-decoration: none;
+      color: inherit;
+
+      &:hover {
+        color: inherit;
+      }
+    }
+  }
+
+  &:hover {
+    background-color: $nevyBlue !important;
+  }
+}
+
+:global {
+  .rec-carousel-item {
+    .card {
+      margin: 20px 0 !important;
+    }
+  }
+
+  .carousel-indicators {
+    button {
+      height: 10px !important;
+      width: 10px !important;
+      border-radius: 50%;
+    }
+  }
+
+  .carousel {
+    .carousel-control-prev,
+    .carousel-control-next {
+      display: none;
+    }
+
+    .carousel-caption {
+      top: 40% !important;
+      padding-top: 0;
+    }
+  }
+}
+
+@media (max-width: $media-md) {
+
+  .slideCover{
+    height: 125vh;
+    
+  }
+
+  .slideImage{
+    height: 40vh;
+  }
+
+  .sliderItem {
+    height: 120vh;
+  }
+ 
+  .bgGrey{
+    height: 60vh;
+  }
+  
+}
+
+@media (min-width: 768px) and (max-width: $media-lg) {
+  
+}

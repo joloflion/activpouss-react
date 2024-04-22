@@ -1,0 +1,126 @@
+@import "../../styles/global.scss";
+
+.topNav{
+  background-color: $black;
+  color: $white;
+}
+
+.mobileMenu{
+  background-color: $grey;
+}
+
+.subMenuTitle{
+  font-size: 14px;
+}
+
+
+
+.topNavIcon{
+  width: 30px !important;
+  height: 30px !important;
+  border-radius: 15px;
+  background-color: $pink !important;
+  color: $white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .fa{
+    font-size: 36px;
+  }
+}
+
+.topNavText{
+  color: $pink;
+  font-size: 16px;
+  font-weight: bold;
+}
+.searchBar {
+
+  padding: 0 12px;
+  width: 340px;
+  height: 42px;
+  border: 1px solid #CCCCCC;
+  border-radius: 0;
+  
+}
+
+.clearSearch{
+  cursor: pointer;
+
+    &:hover{
+      opacity: .7;
+    }
+  }
+
+.searchInput {
+  border: none;
+  outline: none;
+  &:focus{
+    border: none;
+  }
+  width: 290px;
+  height: 36px;
+  padding-left: 8px;
+}
+
+.menuItem{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.cartBadge{
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: $pink;
+  color: $white;
+  font-size: 12px;
+  top: 0;
+  right: 0;
+  margin-top: -10px;
+  margin-right: -2px;
+}
+
+.cart{
+  position: relative;
+}
+
+.borderLeft{
+ border-left: 1.5px solid $pink;
+ padding-left: 6px;
+
+
+
+}
+
+.borderBottom{
+  padding-bottom: 4px;
+  border-bottom: 1.5px solid $pink;
+}
+.menuLabel{
+  font-size: 16px;
+  font-weight: 700;
+  margin-left: 4px;
+}
+
+
+
+
+
+@media (max-width: $media-lg) {
+  
+}
+
+
+.slideButton{
+  outline: none;
+  border: none;
+  i{
+    font-size: 26px !important;
+  }
+
+  background-color: transparent !important;
+}
