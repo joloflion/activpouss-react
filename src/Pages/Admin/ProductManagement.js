@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Card, Table, Button, Space, Modal, Form, Input, InputNumber, Upload, Select, Checkbox } from "antd";
+import { Card, Table, Button, Space, Modal, Form, Input, InputNumber, Upload, Select, Checkbox, Spin, Radio } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts, addProduct, deleteProduct, updateProduct } from "../../Redux/features/Product/ProductSlice";
 import { EditOutlined, DeleteOutlined, EyeOutlined, PlusOutlined, UploadOutlined } from '@ant-design/icons';
@@ -7,24 +7,34 @@ import { ref, getDownloadURL, uploadBytes } from 'firebase/storage';
 import { v4 as uuidv4 } from 'uuid';
 import { toast } from 'react-toastify';
 import { storage } from "../../constants/firebase-config";
-import {CATEGORIES_LIST } from "../../constants/categories";
-
-
-const categories = CATEGORIES_LIST;
-
+import { fetchCategories } from "../../Redux/features/Category/CategorySlice";
 
 const ProductManagement = () => {
     const dispatch = useDispatch();
     const { products } = useSelector((state) => state.products);
+    const { categories } = useSelector((state) => state.categories);
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [isViewModalVisible, setIsViewModalVisible] = useState(false);
     const [form] = Form.useForm();
     const [currentProduct, setCurrentProduct] = useState(null);
     const [viewProduct, setViewProduct] = useState(null);
+    const [loading, setLoading] = useState(false); // State for loader
 
     useEffect(() => {
-        dispatch(fetchProducts());
+        fetchData();
     }, [dispatch]);
+
+    const fetchData = async () => {
+        setLoading(true); // Start loading
+        try {
+            dispatch(fetchProducts());
+            dispatch(fetchCategories())
+        } catch (error) {
+            console.error("Failed to fetch products:", error);
+        } finally {
+            setLoading(false); // Stop loading
+        }
+    };
 
     const showAddProductModal = () => {
         setCurrentProduct(null); // Reset current product for adding
@@ -42,7 +52,10 @@ const ProductManagement = () => {
             isVedette: product?.category?.includes('vedette'),
             isNew: product?.category?.includes('new'),
             isAll: product?.category?.includes('all'),
-            images: product.images.map(url => ({
+            isChild: product?.category?.includes('child'),
+            isAdult: product?.category?.includes('adult'),
+            wall: product?.wall || 'no', // Set wall value (default to 'no')
+            images: product?.images?.map(url => ({
                 uid: url, // unique identifier for the image
                 name: url.split('/').pop(), // use the filename from URL
                 status: 'done', // status to show the image as uploaded
@@ -59,28 +72,35 @@ const ProductManagement = () => {
 
     const handleOk = async () => {
         try {
+            setLoading(true); // Start loading
             const values = await form.validateFields();
             values['category'] = [values.category];
             values['type'] = [];
 
-            if(values.isVedette){
-              values.category.push('vedette');
-              values.type.push('vidette');
-
+            if (values.isVedette) {
+                values.category.push('vedette');
+                values.type.push('vidette');
             }
 
-            if(values.isNew){
+            if (values.isNew) {
                 values.category.push('new');
-              values.type.push('new');
-                
+                values.type.push('new');
             }
 
-            if(values.isAll){
+            if (values.isAll) {
                 values.category.push('all');
-              values.type.push('all');
+                values.type.push('all');
             }
 
+            if (values.isChild) {
+                values.category.push('child');
+                values.type.push('child');
+            }
 
+            if (values.isAdult) {
+                values.category.push('adult');
+                values.type.push('adult');
+            }
 
             const data = {
                 title: values.title,
@@ -88,13 +108,9 @@ const ProductManagement = () => {
                 category: values.category,
                 description: values.description,
                 images: values.images,
-                type: values.type
-
-            }
-
-           console.log(data);
-           
-
+                type: values.type,
+                wall: values.wall // Include wall value in the data
+            };
 
             // Handle image upload
             const imageUrls = await uploadImages(values.images || []);
@@ -102,18 +118,18 @@ const ProductManagement = () => {
             if (currentProduct) {
                 // Edit product
                 dispatch(updateProduct({ id: currentProduct.id, ...data, images: imageUrls }));
-                dispatch(fetchProducts());
             } else {
                 // Add product
                 dispatch(addProduct({ ...data, images: imageUrls }));
-                dispatch(fetchProducts());
-
             }
 
             setIsModalVisible(false);
             toast.success('Produit enregistré avec succès!', { autoClose: 1000 });
+            fetchData(); // Refresh data
         } catch (error) {
             console.log("Validation Failed:", error);
+        } finally {
+            setLoading(false); // Stop loading
         }
     };
 
@@ -163,10 +179,16 @@ const ProductManagement = () => {
             okText: 'Oui',
             okType: 'danger',
             cancelText: 'Non',
-            onOk() {
-                dispatch(deleteProduct(product.id));
-                dispatch(fetchProducts());
-
+            onOk: async () => {
+                setLoading(true); // Start loading
+                try {
+                    await dispatch(deleteProduct(product.id));
+                    fetchData(); // Refresh data
+                } catch (error) {
+                    console.error("Failed to delete product:", error);
+                } finally {
+                    setLoading(false); // Stop loading
+                }
             },
         });
     };
@@ -193,7 +215,8 @@ const ProductManagement = () => {
             title: 'Prix',
             dataIndex: 'price',
             key: 'price',
-            render: (price) => `${price} $`, // Assuming price is in dollars
+            width: '130px',
+            render: (price) => `${price} cfa`, // Assuming price is in dollars
         },
         {
             title: 'Description',
@@ -231,17 +254,19 @@ const ProductManagement = () => {
 
     return (
         <div className="container">
-            <Card
-                type="inner"
-                title="Liste Produits"
-                extra={
-                    <Button type="primary" icon={<PlusOutlined />} onClick={showAddProductModal}>
-                        Ajouter un produit
-                    </Button>
-                }
-            >
-                <Table dataSource={products} columns={columns} rowKey="id" />
-            </Card>
+            <Spin spinning={loading} tip="Loading..."> {/* Add Spin component for loader */}
+                <Card
+                    type="inner"
+                    title="Liste Produits"
+                    extra={
+                        <Button type="primary" icon={<PlusOutlined />} onClick={showAddProductModal}>
+                            Ajouter un produit
+                        </Button>
+                    }
+                >
+                    <Table dataSource={products} columns={columns} rowKey="id" />
+                </Card>
+            </Spin>
 
             <Modal
                 title={currentProduct ? "Modifier le produit" : "Ajouter un produit"}
@@ -249,7 +274,7 @@ const ProductManagement = () => {
                 onOk={handleOk}
                 okText='Valider'
                 cancelText='Annuler'
-                closable= {false}
+                closable={false}
                 onCancel={handleCancel}
             >
                 <Form
@@ -265,21 +290,40 @@ const ProductManagement = () => {
                         <Select>
                             {categories.map((cat) => (
                                 <Select.Option key={cat.value} value={cat.value}>
-                                    {cat.name}
+                                    {cat.title}
                                 </Select.Option>
                             ))}
                         </Select>
                     </Form.Item>
                     <div>Ranger dans: </div>
                     <div className="d-flex justify-content-start align-items-center">
-                        <Form.Item   name="isVedette" valuePropName="checked">
-                                <Checkbox>Vedette</Checkbox>
+                        <Form.Item name="isVedette" valuePropName="checked">
+                            <Checkbox>Vedette</Checkbox>
                         </Form.Item>
                         <Form.Item name="isNew" className="ms-4" valuePropName="checked">
-                                <Checkbox>Nouveau</Checkbox>
+                            <Checkbox>Nouveau</Checkbox>
                         </Form.Item>
                         <Form.Item name="isAll" className="ms-4" valuePropName="checked">
-                                <Checkbox>Tout</Checkbox>
+                            <Checkbox>Tout</Checkbox>
+                        </Form.Item>
+                    </div>
+                    <div>Age: </div>
+                    <div className="d-flex justify-content-start align-items-center">
+                        <Form.Item name="isChild" valuePropName="checked">
+                            <Checkbox>Enfants</Checkbox>
+                        </Form.Item>
+                        <Form.Item name="isAdult" className="ms-4" valuePropName="checked">
+                            <Checkbox>Adultes</Checkbox>
+                        </Form.Item>
+                    </div>
+
+                    <div>Afficher sur le mur : </div>
+                    <div className="d-flex justify-content-start align-items-center">
+                        <Form.Item name="wall" initialValue="no">
+                            <Radio.Group>
+                                <Radio value="yes">Oui</Radio>
+                                <Radio value="no">Non</Radio>
+                            </Radio.Group>
                         </Form.Item>
                     </div>
                     <Form.Item
@@ -337,6 +381,7 @@ const ProductManagement = () => {
                         <p><strong>Prix:</strong> {viewProduct.price} $</p>
                         <p><strong>Description:</strong> {viewProduct.description}</p>
                         <p><strong>Catégorie:</strong> {viewProduct.category.join(', ')}</p>
+                        <p><strong>Mur:</strong> {viewProduct.wall === 'yes' ? 'Oui' : 'Non'}</p>
                         <p><strong>Images:</strong></p>
                         <Space>
                             {viewProduct.images.map((image, index) => (

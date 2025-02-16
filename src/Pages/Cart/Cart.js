@@ -9,7 +9,9 @@ import {
 } from "../../Redux/features/Cart/CartSlice";
 import EmptyCart from "../../Components/EmptyCart/EmptyCart";
 import { toast } from "react-toastify";
-
+import { MenuNav } from "../../Components/Nav/MenuNav";
+import TopNav from "../../Components/Nav/TopNav";
+import MyFooter from "../../Components/Footer/Footer";
 const Cart = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.cart);
@@ -52,6 +54,9 @@ const Cart = () => {
   }
 
   return (
+    <div>
+       <TopNav />
+       <MenuNav />
     <div className="container py-5 mt-4">
       <h2 className="py-3 text-center">Mon panier</h2>
       {products?.cart?.map((product) => {
@@ -107,6 +112,8 @@ const Cart = () => {
           Prix Total : CFA{totalPrice.toFixed(2)}
         </h5>
       </div>
+    </div>
+    <MyFooter />
     </div>
   );
 };

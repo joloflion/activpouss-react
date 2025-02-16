@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 export const CartBtn = ({label = true}) => {
   const { cart } = useSelector((state) => state.cart);
 
-    return  <a href='cart'> 
+    return  <a href='/cart'> 
             <div className={`text-center ${style.cart}`}>
                 <img src={cartIcon} alt=''  width={30} />
                 {label && <div className={`mt-1 ${style.subMenuTitle}`}>Panier</div>}

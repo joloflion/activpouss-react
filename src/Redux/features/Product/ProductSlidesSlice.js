@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { STATUS } from "../../../constants/Status";
 import { db } from "../../../constants/firebase-config";
-import {collection, getDocs} from "@firebase/firestore";
+import {collection, getDocs, query, where} from "@firebase/firestore";
 
 
 const initialState = {
@@ -32,8 +32,10 @@ const productSlidesSlice = createSlice({
 
 export const fetchProductsSlides = createAsyncThunk("fetch/prodcuts/slides", async () => {
  // const data = await axios.get(`${base_url}products`).then((res) => res.data);
-  const productsCollection = collection(db, 'slides');
-  const snapshot = await getDocs(productsCollection);
+  const productsCollection = collection(db, 'products');
+      const q = query(productsCollection, where("wall","==" ,'yes'))
+  
+  const snapshot = await getDocs(q);
   const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
   console.log(data)
   return data;

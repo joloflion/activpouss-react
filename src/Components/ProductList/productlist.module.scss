@@ -135,3 +135,19 @@
     align-items: start;
   }
 }
+
+
+.selectedVideo {
+  border: 2px solid #d52ab4 !important; // Add a border to the selected video
+}
+
+.videoItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 180px;
+  color: white;
+  font-size: 2rem;
+  margin: 0 4px;
+  cursor: pointer;
+}

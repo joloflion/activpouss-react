@@ -111,6 +111,7 @@ export const updateProduct = createAsyncThunk(
         price: product.price,
         images: product.images.map(image => image.url || image), // Handle both objects with `url` and plain URLs
         category: product.category,
+        wall: product.wall
       });
 
       return { ...product };

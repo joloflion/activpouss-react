@@ -8,7 +8,6 @@ import About from "./Pages/About/About";
 import { Navigate, Route, Routes } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
-import WishList from "./Pages/WishList/WishList";
 import Shop from "./Pages/Shop/Shop";
 import { Admin } from "./Pages/Admin/Admin";
 
@@ -39,7 +38,6 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/products/:id" element={<ProductDetail />} />
           <Route path="/shop" element={<Shop />} />
-          <Route path="/wishlist" element={<WishList />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         </AuthProvider>
