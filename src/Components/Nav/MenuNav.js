@@ -22,7 +22,7 @@ export const MenuNav = () => {
   // Predefined menu items like Home and Shop
   const staticMenus = [
     {
-      title: 'Acceuil',
+      title: 'Accueil',
       icon: home,
       path: '/',
     },
