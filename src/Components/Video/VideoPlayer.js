@@ -3,15 +3,14 @@ import ReactPlayer from 'react-player';
 import styles from "./Video.module.scss";
 
 export const  VideoPlayer = ({post}) => {
-  console.log(post)
   return (
     <div className={'mb-5 '+ styles.selectedVideo} >
       <ReactPlayer 
       controls={true} 
-      light={<img src={post?.image} alt='Thumbnail' width='100%' height='100%' />}
+      light={<img src={post?.coverImageUrl[0]} alt='Thumbnail' width='100%' height='100%' />}
       width='100%'
-      height='340px'
-      url={post?.url} />
+      height='380px'
+      url={post?.videoUrl} />
     </div>
   )
 }

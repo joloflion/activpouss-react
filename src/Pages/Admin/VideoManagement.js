@@ -72,21 +72,23 @@ const VideoManagement = () => {
 
   const showEditVideoModal = (video) => {
     setCurrentVideo(video);
+    const initialFileList = video?.coverImageUrl?.map(url => ({
+      uid: url,
+      name: url.split('/').pop(),
+      status: 'done',
+      url
+    }));
     form.setFieldsValue({
       title: video.title,
       slug: video.slug,
       description: video.description,
       videoUrl: video.videoUrl,
-      coverImageUrl: video.coverImageUrl[0],
+      coverImageUrl: initialFileList,
+      category: video?.categories?.[0]
     });
-    setFileList([
-      {
-        uid: "-1",
-        name: "cover-image",
-        status: "done",
-        url: video.coverImageUrl[0],
-      },
-    ]);
+    
+    setFileList(initialFileList??[]);
+
     setIsModalVisible(true);
   };
 
@@ -101,8 +103,7 @@ const VideoManagement = () => {
       const values = await form.validateFields();
       values['category'] = [values.category];
       values.category.push('all')
-      // If a file is uploaded, get the URL (you need to handle file upload to a server)
-      const coverImageUrl = await uploadImages([values.coverImageUrl] || []);
+      const coverImageUrl = await uploadImages(fileList);
 
       const data = {
         title: values.title,
@@ -114,17 +115,14 @@ const VideoManagement = () => {
       };
 
       if (currentVideo) {
-        // Edit video
         dispatch(updateVideo({ id: currentVideo.id, ...data }));
       } else {
-        // Add video
-        console.log(data);
         dispatch(addVideo(data));
       }
 
       setIsModalVisible(false);
       toast.success("Vidéo enregistrée avec succès!", { autoClose: 1000 });
-      fetchData(); // Refresh data
+      dispatch(fetchVideos())
     } catch (error) {
       console.log("Validation Failed:", error);
     } finally {
@@ -157,6 +155,11 @@ const VideoManagement = () => {
     }
     return e?.fileList;
   };
+
+  const handleUploadChange = ({ fileList }) => {
+    setFileList(fileList);
+  };
+
   const handleCancel = () => {
     setIsModalVisible(false);
   };
@@ -188,29 +191,6 @@ const VideoManagement = () => {
         }
       },
     });
-  };
-
-  // Upload configuration
-  const uploadProps = {
-    onRemove: (file) => {
-      setFileList([]);
-    },
-    beforeUpload: (file) => {
-      // Validate file type and size
-      const isImage = file.type.startsWith("image/");
-      if (!isImage) {
-        message.error("Vous ne pouvez télécharger que des fichiers image!");
-        return Upload.LIST_IGNORE;
-      }
-      const isLt2M = file.size / 1024 / 1024 < 2;
-      if (!isLt2M) {
-        message.error("L'image doit être inférieure à 2MB!");
-        return Upload.LIST_IGNORE;
-      }
-      setFileList([file]);
-      return false; // Prevent automatic upload
-    },
-    fileList,
   };
 
   const columns = [
@@ -342,6 +322,8 @@ const VideoManagement = () => {
           <Form.Item
             name="coverImageUrl"
             label="Image de couverture"
+            valuePropName="fileList"
+            getValueFromEvent={normFile}
             rules={[
               {
                 required: true,
@@ -351,10 +333,17 @@ const VideoManagement = () => {
           >
             <Upload
               listType="picture"
-              beforeUpload={() => false} // Prevent automatic upload
-              multiple
+              beforeUpload={() => false}
+              accept="image/*"
+              fileList={fileList}
+              onChange={handleUploadChange}
             >
-              <Button icon={<UploadOutlined />}>Charger une image</Button>
+              <Button 
+                icon={<UploadOutlined />} 
+                disabled={fileList?.length >= 1}
+              >
+                Charger une image
+              </Button>
             </Upload>
           </Form.Item>
         </Form>
@@ -396,6 +385,7 @@ const VideoManagement = () => {
             <p>
               <strong>Image de couverture:</strong>
             </p>
+            <Image src={viewVideo.coverImageUrl[0]} alt="Cover" />
             <p>
               <strong>Vidéo:</strong>
             </p>

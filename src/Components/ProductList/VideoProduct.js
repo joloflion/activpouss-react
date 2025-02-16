@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./productlist.module.scss";
 import { VideoPlayer } from "../Video/VideoPlayer";
-import { fetchProductVideoByCategory } from "../../Redux/features/Product/VideoSlice";
+import { fetchProductVideoByCategory, fetchVideos } from "../../Redux/features/Product/VideoSlice";
 import newProd from '../../assests/icons/product.png';
 import { ProductTitle } from "../Title/ProductTitle";
 
@@ -12,15 +12,16 @@ const ProductVideoList = () => {
 
   const dispatch = useDispatch();
 
-  const { videos, status } = useSelector((state) => state.videos);
+  const { videosByCategory,videos } = useSelector((state) => state.videos);
   const { categories } = useSelector((state) => state.categories);
 
   useEffect(() => {
     dispatch(fetchProductVideoByCategory(selectedCategory??'all'));
+    dispatch(fetchVideos())
   }, [selectedCategory]);
 
   return (
-   videos.length > 0 ? 
+    videos?.length > 0 ? 
    <div>
       <ProductTitle title={'Vidéos'} img={newProd} />
    <div className="container">
@@ -47,14 +48,14 @@ const ProductVideoList = () => {
         </div>
         <div className="col-12 col-sm-8 col-lg-9">
           <div className={styles.videoPlayer}>
-            {videos.length > 0 && (
+            {videosByCategory.length > 0 && (
               <VideoPlayer
-                post={selectedProduct !== null ? selectedProduct : videos[0]}
+                post={selectedProduct !== null ? selectedProduct : videosByCategory[0]}
               />
             )}
           </div>
           <div className="row mt-5 p-3">
-            {videos.map((p) => (
+            {videosByCategory.map((p) => (
               <div
                 key={p.id} // Add a key for React rendering
                 onClick={() => setSelectedProduct(p)}
@@ -62,7 +63,7 @@ const ProductVideoList = () => {
                   selectedProduct?.id === p.id ? styles.selectedVideo : ""
                 }`}
                 style={{
-                  backgroundImage: `url(${p.image})`,
+                  backgroundImage: `url(${p.coverImageUrl[0]})`,
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",
                   backgroundSize: "cover",

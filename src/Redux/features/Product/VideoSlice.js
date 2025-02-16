@@ -22,7 +22,7 @@ const initialState = {
 
 // Fetch videos by category
 export const fetchProductVideoByCategory = createAsyncThunk(
-  "fetch/videos",
+  "fetch/videosByCategory",
   async (category) => {
    
     try {
@@ -34,8 +34,6 @@ export const fetchProductVideoByCategory = createAsyncThunk(
       );
       const snapshot = await getDocs(q);
       let data = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-      console.log("*", data);
-      
       return data;
     } catch (error) {
       console.log("*",error);
@@ -46,7 +44,7 @@ export const fetchProductVideoByCategory = createAsyncThunk(
 
 //fetching product using build in thunk on toolkit
 
-export const fetchVideos = createAsyncThunk("fetch/videos/all", async () => {
+export const fetchVideos = createAsyncThunk("fetch/videos", async () => {
   // const data = await axios.get(`${base_url}products`).then((res) => res.data);
    const videosCollection = collection(db, 'videos');
    const snapshot = await getDocs(videosCollection);
@@ -124,7 +122,6 @@ const videosSlice = createSlice({
         state.status = STATUS.LOADING;
       })
       .addCase(addVideo.fulfilled, (state, action) => {
-        state.videos.push(action.payload);
         state.status = STATUS.IDLE;
       })
       .addCase(addVideo.rejected, (state) => {
