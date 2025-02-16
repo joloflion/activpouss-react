@@ -29,6 +29,19 @@ const ProductVideoList = () => {
         <div className="col-12 col-sm-4 col-lg-3">
           <div className={styles.categoryTitle}>Nouveaux produits</div>
           <ul className={styles.categoryList}>
+          <li
+                key={"all"} // Add a key for React rendering
+                className={
+                  "all" === selectedCategory ? styles.selctedCategory : ""
+                }
+                onClick={() => {
+                  dispatch(fetchProductVideoByCategory("all"));
+                  setSelectedCategory("all");
+                  setSelectedProduct(null); // Reset selected product when category changes
+                }}
+              >
+                {'Tout'}
+              </li>
             {categories.map((cat) => (
               <li
                 key={cat.value} // Add a key for React rendering
@@ -47,13 +60,13 @@ const ProductVideoList = () => {
           </ul>
         </div>
         <div className="col-12 col-sm-8 col-lg-9">
-          <div className={styles.videoPlayer}>
+          {videosByCategory?.length === 0 ? <div className="d-flex justify-content-center align-items-center bg-light" style={{height: '100%', width: '100%'}}>Pas de videos pour cette option</div> :<div className={styles.videoPlayer}>
             {videosByCategory.length > 0 && (
               <VideoPlayer
                 post={selectedProduct !== null ? selectedProduct : videosByCategory[0]}
               />
             )}
-          </div>
+          </div>}
           <div className="row mt-5 p-3">
             {videosByCategory.map((p) => (
               <div

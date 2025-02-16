@@ -62,7 +62,7 @@ export const MenuNav = () => {
 
       {/* Menu list */}
       <ul
-        className={`d-flex justify-content-between align-items-center list-unstyled p-3 ${style.menuList} ${
+        className={`d-flex justify-content-start align-items-center list-unstyled p-3 ${style.menuList} ${
           isMenuOpen ? style.menuOpen : ''
         }`}
       >
@@ -76,7 +76,7 @@ export const MenuNav = () => {
                     menu.path === currentPath ? style.borderBottom : ''
                   }`}
                 >
-                  <img src={menu.icon} alt="" width={26} />
+                  <img src={menu.icon} alt="" width={22} />
                   <span className={style.menuLabel}>{menu.title}</span>
                 </div>
               </a>

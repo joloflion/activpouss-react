@@ -35,7 +35,7 @@ const ProductCard = ({ product }) => {
         }} />
       <h1 className={styles.cardTitle}>{product?.title}</h1>
       <h2 className={"product-price"}>{product?.price} CFA</h2>
-      <button className={styles.commonBtn} onClick={() => addProduct()}>Ajouter aun panier</button>
+      <button className={styles.commonBtn} onClick={() => addProduct()}>Ajouter au panier</button>
       {/* <Card
         style={{ width: "100%", textAlign: "center" }}
         className={styles.productCard}
