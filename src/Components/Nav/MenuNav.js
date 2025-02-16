@@ -62,7 +62,7 @@ export const MenuNav = () => {
 
       {/* Menu list */}
       <ul
-        className={`d-flex justify-content-start align-items-center list-unstyled p-3 ${style.menuList} ${
+        className={`d-flex justify-content-between align-items-center list-unstyled p-3 ${style.menuList} ${
           isMenuOpen ? style.menuOpen : ''
         }`}
       >
