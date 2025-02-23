@@ -93,3 +93,20 @@ a{
     opacity: .7;
   }
 }
+
+.ant-card-meta-title{
+  font-size: 12px !important;
+}
+
+.ant-card-meta-description{
+  font-size: 18px;
+  font-weight: 800;
+  opacity: 1;
+  color: $pink !important;
+  text-align: center;
+}
+
+.ant-card-body{
+  padding: 20px 10px !important;
+  text-align: center !important;
+}

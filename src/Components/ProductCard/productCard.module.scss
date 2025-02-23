@@ -40,8 +40,12 @@
   width: 100%;
   padding: 8px 0;
   transition: all .5s;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 
   &:hover {
     background-color: $green !important;
   }
 }
+
+

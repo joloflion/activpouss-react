@@ -5,6 +5,8 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
 import styles from "./productCard.module.scss";
+import { Card } from "antd";
+import Meta from "antd/es/card/Meta";
 
 const ProductCard = ({ product }) => {
 
@@ -23,38 +25,46 @@ const ProductCard = ({ product }) => {
   };
 
   return (
-    <div className={styles.productCard}>
-      <img 
-      src={product?.images[0]} 
-      alt={product?.title} 
-      className={styles.cardImg}
-      onClick={() => {
-        navigate(`/products/${product?.id}`);
-        window.location.reload()
+    <Card key={product.id}
+    hoverable
+    style={{ width: '100%' }}
+    cover={<img style={{height: '260px'}} alt={product.title} src={product.images[0]} onClick={() => navigate(`/products/${product?.id}`)} />}
+  >
+    <Meta className="mb-4" style={{fontSize: '16px'}} title={product.title} description={`${product?.price} CFA`}  />
+    <button className={styles.commonBtn} onClick={() => addProduct()}>Ajouter au panier</button>
+  </Card>
+  //   <div className={styles.productCard}>
+  //     <img 
+  //     src={product?.images[0]} 
+  //     alt={product?.title} 
+  //     className={styles.cardImg}
+  //     onClick={() => {
+  //       navigate(`/products/${product?.id}`);
+  //       window.location.reload()
 
-        }} />
-      <h1 className={styles.cardTitle}>{product?.title}</h1>
-      <h2 className={"product-price"}>{product?.price} CFA</h2>
-      <button className={styles.commonBtn} onClick={() => addProduct()}>Ajouter au panier</button>
-      {/* <Card
-        style={{ width: "100%", textAlign: "center" }}
-        className={styles.productCard}
-      >
-        <Card.Img
-          onClick={() => navigate(`/products/${product?.id}`)}
-          variant="top"
-          src={product?.image}
-          className={styles.cardImg}
-        />
-        <Card.Body>
-          <Card.Title>{title}</Card.Title>
-          <Card.Text>${product?.price}</Card.Text>
-          <Button className={styles.commonBtn} onClick={addProduct}>
-            ADD TO CART
-          </Button>
-        </Card.Body>
-  </Card> */}
-    </div>
+  //       }} />
+  //     <h1 className={styles.cardTitle}>{product?.title}</h1>
+  //     <h2 className={"product-price"}>{product?.price} CFA</h2>
+  //     <button className={styles.commonBtn} onClick={() => addProduct()}>Ajouter au panier</button>
+  //     {/* <Card
+  //       style={{ width: "100%", textAlign: "center" }}
+  //       className={styles.productCard}
+  //     >
+  //       <Card.Img
+  //         onClick={() => navigate(`/products/${product?.id}`)}
+  //         variant="top"
+  //         src={product?.image}
+  //         className={styles.cardImg}
+  //       />
+  //       <Card.Body>
+  //         <Card.Title>{title}</Card.Title>
+  //         <Card.Text>${product?.price}</Card.Text>
+  //         <Button className={styles.commonBtn} onClick={addProduct}>
+  //           ADD TO CART
+  //         </Button>
+  //       </Card.Body>
+  // </Card> */}
+  //   </div>
   );
 };
 
