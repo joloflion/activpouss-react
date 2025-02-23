@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Card, Table, Button, Space, Modal, Form, Input, InputNumber, Upload, Select, Checkbox, Spin, Radio } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts, addProduct, deleteProduct, updateProduct } from "../../Redux/features/Product/ProductSlice";
-import { EditOutlined, DeleteOutlined, EyeOutlined, PlusOutlined, UploadOutlined } from '@ant-design/icons';
+import { EditOutlined, DeleteOutlined, EyeOutlined, PlusOutlined, UploadOutlined, LoadingOutlined } from '@ant-design/icons';
 import { ref, getDownloadURL, uploadBytes } from 'firebase/storage';
 import { v4 as uuidv4 } from 'uuid';
 import { toast } from 'react-toastify';
@@ -229,23 +229,23 @@ const ProductManagement = () => {
             key: 'action',
             render: (text, record) => (
                 <Space size="middle">
-                    <Button 
-                        type="primary" 
-                        className="bg-info" 
-                        icon={<EyeOutlined />} 
-                        onClick={() => showViewProductModal(record)} 
+                    <Button
+                        type="primary"
+                        className="bg-info"
+                        icon={<EyeOutlined />}
+                        onClick={() => showViewProductModal(record)}
                     />
-                    <Button 
-                        type="primary" 
-                        className="bg-success" 
-                        icon={<EditOutlined />} 
-                        onClick={() => showEditProductModal(record)} 
+                    <Button
+                        type="primary"
+                        className="bg-success"
+                        icon={<EditOutlined />}
+                        onClick={() => showEditProductModal(record)}
                     />
-                    <Button 
-                        type="primary"  
-                        className="bg-danger" 
-                        icon={<DeleteOutlined />} 
-                        onClick={() => showDeleteConfirm(record)} 
+                    <Button
+                        type="primary"
+                        className="bg-danger"
+                        icon={<DeleteOutlined />}
+                        onClick={() => showDeleteConfirm(record)}
                     />
                 </Space>
             ),
@@ -276,6 +276,7 @@ const ProductManagement = () => {
                 cancelText='Annuler'
                 closable={false}
                 onCancel={handleCancel}
+                okButtonProps={{ disabled: loading }} // Disable the OK button when loading
             >
                 <Form
                     form={form}
@@ -363,6 +364,7 @@ const ProductManagement = () => {
                         </Upload>
                     </Form.Item>
                 </Form>
+                {loading && <Spin indicator={<LoadingOutlined />} />} {/* Show loader inside modal */}
             </Modal>
 
             <Modal

@@ -30,7 +30,7 @@ const Slider = () => {
     { productSlides.length > 0 && productSlides.map (p => 
       <div className={`row ${style.sliderItem}`}>
           <div className="col-12 col-sm-6 col-lg-6 col-xl-5">
-            <img className={style.slideImage+ ' img-fluid'} src={p.images[0]} alt={p.id} />
+            <img className={style.slideImage} src={p.images[0]} alt={p.id} />
           </div>
           <div className={`col-12 col-sm-6 col-lg-6 col-xl-7 text-start p-5 ${style.bgGrey}`}>
             <h3 className="mb-3 text-start">{p.title}</h3>
