@@ -27,8 +27,8 @@ const ProductCard = ({ product }) => {
   return (
     <Card key={product.id}
     hoverable
-    style={{ width: '100%' }}
-    cover={<img style={{height: '260px'}} alt={product.title} src={product.images[0]} onClick={() => navigate(`/products/${product?.id}`)} />}
+   
+    cover={<a href={`/products/${product?.id}`}><img style={{height: '240px', width:'100%'}} alt={product.title} src={product.images[0]} /></a>}
   >
     <Meta className="mb-4" style={{fontSize: '16px'}} title={product.title} description={`${product?.price} CFA`}  />
     <button className={styles.commonBtn} onClick={() => addProduct()}>Ajouter au panier</button>

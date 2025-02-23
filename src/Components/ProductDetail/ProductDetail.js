@@ -59,7 +59,7 @@ const ProductDetail = () => {
       {!productDetail ? (
         <Loader />
       ) : (
-        <div className={`${styles.detailWrapper} container py-4`}>
+        <div className={`${styles.detailWrapper} container pb-4`}>
           <Breadcrumb>
             <Breadcrumb.Item onClick={() => navigate("/")}>
               Acceuil
@@ -68,15 +68,15 @@ const ProductDetail = () => {
           </Breadcrumb>
           <h1>{productDetail?.title}</h1>
           <hr className="mb-4" />
-          <div className={styles.mainDetailWrapper}>
-            <div className={styles.imageWrapper}>
+          <div className="row">
+            <div className="col-12 col-md-5">
               <img
                 src={productDetail?.images[0]}
                 alt={productDetail?.title}
-                style={{ maxWidth: "300px", maxHeight: "300px" }}
+                className="img-fluid"
               />
             </div>
-            <div className="pt-3">
+            <div className="col-12 col-md-7 pt-3">
               <h4>{productDetail?.title}</h4>
               <h6 className="text-success">
                 {
@@ -117,13 +117,13 @@ const ProductDetail = () => {
                 <p>Passer votre commande maintenant en </p>
                 <h5 className="my-3">
                   appelant le{" "}
-                  <span className="text-pink">+221 77 195 49 74</span>{" "}
+                  <span className="text-pink">+221 77 413 13 46</span>{" "}
                 </h5>
                 <h5>
                   Ou sur whatsapp{" "}
                   <a
                     className="btn btn-success text-white"
-                    href={`https://wa.me/+221771954974?text=${createWhatsAppMessage()}`}
+                    href={`https://wa.me/+221774131346?text=${createWhatsAppMessage()}`}
                   >
                     {" "}
                     <i class="fa fa-whatsapp" aria-hidden="true"></i> Whatsapp
